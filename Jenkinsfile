@@ -15,7 +15,7 @@ pipeline {
                     node --version
                     npm --version
                     npm ci
-                    npm run bluid
+                    npm run build
                     ls -la
                 '''
             }
