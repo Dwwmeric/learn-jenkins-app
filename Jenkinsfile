@@ -20,7 +20,7 @@ pipeline {
                 '''
             }
         }
-        
+
         stage('Test'){
             agent {
                 docker {
@@ -28,10 +28,12 @@ pipeline {
                     reuseNode true
                 }
             }
-            sh '''
-                test -f build/index.html
-                npm test
-            '''
+            steps {
+                sh '''
+                    test -f build/index.html
+                    npm test
+                '''
+            }
         }
     }
 }
