@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         NETLIFY_SITE_ID = '6cfac17c-fb79-4b49-8201-85c7a9b933ce'
+        NETLIFY_AUTH_TOKEN = credentials('netlify-token')
     }
 
     stages {
@@ -62,7 +63,6 @@ pipeline {
                             npx playwright test --reporter=html
                         '''
                     }
-
                     post {
                         always {
                             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, icon: '', keepAll: false, reportDir: 'playwright-report', reportFiles: 'index.html', reportName: 'Playwright HTML Report', reportTitles: '', useWrapperFileDirectly: true])
@@ -84,6 +84,7 @@ pipeline {
                     npm install netlify-cli@20.1.1
                     node_modules/.bin/netlify --version
                     echo "Deploy id = $NETLIFY_SITE_ID"
+                    node_modules/.bin/netlify status
                 '''
             }
         }
