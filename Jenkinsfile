@@ -84,6 +84,7 @@ pipeline {
                     npm install netlify-cli
                     npx netlify --version
                     npx netlify status --verbose 
+                    npx netlify deploy --prod --dir=build --auth=$NETLIFY_AUTH_TOKEN --site=$NETLIFY_SITE_ID
                 '''
             }
         }
