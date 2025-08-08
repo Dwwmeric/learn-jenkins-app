@@ -85,7 +85,7 @@ pipeline {
                     node_modules/.bin/netlify --version
                     echo "Deploy id = $NETLIFY_SITE_ID"
                     node_modules/.bin/netlify login --auth $NETLIFY_AUTH_TOKEN
-                    node_modules/.bin/netlify unlink --force
+                    node_modules/.bin/netlify unlink
                     node_modules/.bin/netlify link --id $NETLIFY_SITE_ID
                     node_modules/.bin/netlify status
                 '''
