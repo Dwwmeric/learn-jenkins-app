@@ -83,6 +83,7 @@ pipeline {
                 sh '''
                     npm install netlify-cli
                     npx netlify --version
+                    npx netlify status --verbose 
                 '''
             }
         }
