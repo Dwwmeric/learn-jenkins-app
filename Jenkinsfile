@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         NETLIFY_SITE_ID = 'c64db2bf-dd03-4919-a20f-1606d5cb8f46'
-        NETLIFY_AUTH_TOKEN = credentials('netlify-token')
+        NETLIFY_AUTH_TOKEN = 'nfp_5AhSc42F1JwSHiUTxXpYT8s4Qp2fAMmrf3be'
     }
 
     stages {
@@ -81,7 +81,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    npm install netlify-cli@20.1.1
+                    npm install netlify-cli
                     node_modules/.bin/netlify --version
                     echo "Deploy id = $NETLIFY_SITE_ID"
                     node_modules/.bin/netlify login --auth $NETLIFY_AUTH_TOKEN
