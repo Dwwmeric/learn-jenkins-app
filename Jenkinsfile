@@ -91,7 +91,7 @@ pipeline {
                     ls -l 
                     echo "debug" 
                     ls -l /var/jenkins_home/workspace/learn-jenkins-app
-                    node_modules/.bin/netlify deploy --prod --dir=build --auth=$NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID
+                    node_modules/.bin/netlify deploy --prod --dir=/var/jenkins_home/workspace/learn-jenkins-app --auth=$NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID
                 '''
             }
         }
