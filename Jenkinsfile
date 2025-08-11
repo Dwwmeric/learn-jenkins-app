@@ -82,6 +82,7 @@ pipeline {
             steps {
                 sh '''
                     npm install netlify-cli
+                    export NODE_TLS_REJECT_UNAUTHORIZED=0
                     node_modules/.bin/netlify --version
                     node_modules/.bin/netlify status --verbose 
                     node_modules/.bin/netlify link --name dazzling-douhua-b7f0b1
