@@ -60,7 +60,7 @@ pipeline {
                             npm install serve
                             node_modules/.bin/serve -s build & 
                             sleep 10
-                            node_modules/.bin/netlify playwright test --reporter=html
+                            npx playwright test --reporter=html
                         '''
                     }
                     post {
@@ -82,11 +82,11 @@ pipeline {
             steps {
                 sh '''
                     npm install netlify-cli
-                    node_modules/.bin/netlify netlify --version
-                    node_modules/.bin/netlify netlify status --verbose 
-                    node_modules/.bin/netlify netlify link --name dazzling-douhua-b7f0b1
-                    node_modules/.bin/netlify netlify status --verbose 
-                    node_modules/.bin/netlify netlify deploy --prod --dir=build --auth=$NETLIFY_AUTH_TOKEN --site=dazzling-douhua-b7f0b1
+                    node_modules/.bin/netlify --version
+                    node_modules/.bin/netlify status --verbose 
+                    node_modules/.bin/netlify link --name dazzling-douhua-b7f0b1
+                    node_modules/.bin/netlify status --verbose 
+                    node_modules/.bin/netlify deploy --prod --dir=build --auth=$NETLIFY_AUTH_TOKEN --site=dazzling-douhua-b7f0b1
                 '''
             }
         }
