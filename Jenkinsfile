@@ -81,7 +81,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    npm install netlify-cli
+                    npm install -g netlify-cli
                     npx netlify --version
                     npx netlify status --verbose 
                     npx netlify link --name dazzling-douhua-b7f0b1
