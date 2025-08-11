@@ -84,10 +84,9 @@ pipeline {
                     npm install netlify-cli
                     export NODE_TLS_REJECT_UNAUTHORIZED=0
                     node_modules/.bin/netlify --version
-                    node_modules/.bin/netlify status --verbose 
                     node_modules/.bin/netlify link --name dazzling-douhua-b7f0b1
                     node_modules/.bin/netlify status --verbose 
-                    node_modules/.bin/netlify deploy --prod --dir=build --auth=$NETLIFY_AUTH_TOKEN --site=dazzling-douhua-b7f0b1
+                    node_modules/.bin/netlify deploy --prod --dir=build --auth=$NETLIFY_AUTH_TOKEN --site=c64db2bf-dd03-4919-a20f-1606d5cb8f46
                 '''
             }
         }
