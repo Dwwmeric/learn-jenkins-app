@@ -84,7 +84,8 @@ pipeline {
                     npm install netlify-cli
                     npx netlify --version
                     npx netlify status --verbose 
-                    netlify link --name dazzling-douhua-b7f0b1
+                    npx netlify link --name dazzling-douhua-b7f0b1
+                    npx netlify status --verbose 
                     npx netlify deploy --prod --dir=build --auth=$NETLIFY_AUTH_TOKEN --site=dazzling-douhua-b7f0b1
                 '''
             }
