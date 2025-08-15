@@ -108,11 +108,12 @@ pipeline {
             }
             steps {
                 sh '''
-                    npm install netlify-cli
+                    npm install netlify-cli node-jq
                     export NODE_TLS_REJECT_UNAUTHORIZED=0
                     node_modules/.bin/netlify link --name $NETLIFY_SITE_NAME
                     node_modules/.bin/netlify status --verbose 
-                    node_modules/.bin/netlify deploy --prod --dir=build --auth=$NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID --no-build
+                    node_modules/.bin/netlify deploy --prod --dir=build --auth=$NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID --no-build --json > deploy-output.json
+                    node_modules/.bin/node-jq -r '.deploy_url' deploy-output.json
                 '''
             }
         }
