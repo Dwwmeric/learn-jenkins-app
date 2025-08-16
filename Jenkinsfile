@@ -88,9 +88,9 @@ pipeline {
                     node_modules/.bin/netlify status --verbose 
                     node_modules/.bin/netlify deploy --dir=build --auth=$NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID --no-build --json > deploy-output.json
                 '''
-            }
-            script {
-                env.STAGING_URL = sh(script: "node_modules/.bin/node-jq -r '.deploy_url' deploy-output.json", returnsStdout: true)
+                script {
+                    env.STAGING_URL = sh(script: "node_modules/.bin/node-jq -r '.deploy_url' deploy-output.json", returnsStdout: true)
+                }
             }
         }
 
